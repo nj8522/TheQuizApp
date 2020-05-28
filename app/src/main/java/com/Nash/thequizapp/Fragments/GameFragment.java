@@ -1,6 +1,8 @@
 package com.Nash.thequizapp.Fragments;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,9 +44,6 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     //Firebase
     FirebaseFirestore firebaseFirestore;
     FirebaseUser currentUser;
-
-    //DB
-    GameModal gameModal;
 
     //List
     List<GameModal> dataList = new ArrayList<>();
@@ -120,6 +119,13 @@ public class GameFragment extends Fragment implements View.OnClickListener {
 
         next.setOnClickListener(this);
         gameResult.setOnClickListener(this);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quitGame();
+            }
+        });
 
         getGameQuestion();
 
@@ -209,26 +215,23 @@ public class GameFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.game_option_a :
-                 verifyOption(option_a);
-                 break;
-            case R.id.game_option_b :
-                verifyOption(option_b);
-                break;
-            case R.id.game_option_c :
-                verifyOption(option_c);
-                break;
-            case R.id.game_next_btn :
+                    case R.id.game_option_a :
+                    verifyOption(option_a);
+                    break;
+                    case R.id.game_option_b :
+                    verifyOption(option_b);
+                    break;
+                    case R.id.game_option_c :
+                    verifyOption(option_c);
+                    break;
+                    case R.id.game_next_btn :
                     ++pos;
                     startGame(pos);
                     nextQuestion();
                     break;
-            case R.id.game_close_btn :
-
-                 break;
-            case R.id.game_results :
-                getResult();
-                break;
+                    case R.id.game_results :
+                    getResult();
+                    break;
         }
 
     }
@@ -306,4 +309,29 @@ public class GameFragment extends Fragment implements View.OnClickListener {
                     }
                 });
     }
+
+    private void quitGame() {
+
+        countDownTimer.cancel();
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("Are Sure You want to Quit");
+        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                  navController.navigate(R.id.action_gameFragment_to_homeFragment);
+            }
+        });
+       builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+           @Override
+           public void onClick(DialogInterface dialog, int which) {
+               dialog.cancel();
+               countDownTimer.start();
+           }
+       });
+
+       AlertDialog dialog = builder.create();
+       dialog.show();
+
+    }
+
 }
