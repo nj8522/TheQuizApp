@@ -1,0 +1,93 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.Nash.thequizapp.Fragments.DetailFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+            <ImageView
+                android:id="@+id/detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#43CA49" />
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:padding="2dp"
+                android:layout_margin="4dp"
+                android:text="Title"
+                android:textColor="#ffffff"
+                android:textSize="46sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/detail_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Description"
+            android:layout_margin="4dp"
+            android:padding="2dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Level"
+            android:layout_margin="4dp"
+            android:padding="2dp"
+            android:textStyle="bold"
+            android:textSize="26sp"/>
+
+        <TextView
+            android:id="@+id/detail_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Level Type"
+            android:layout_margin="4dp"
+            android:padding="2dp"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Questions"
+            android:layout_margin="4dp"
+            android:padding="2dp"
+            android:textStyle="bold"
+            android:textSize="26sp"/>
+
+        <TextView
+            android:id="@+id/detail_questions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No of Questions"
+            android:layout_margin="4dp"
+            android:padding="2dp"
+            android:textSize="24sp"/>
+
+        <Button
+            android:id="@+id/detail_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_margin="16dp"
+            android:text="Begin"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+ </ScrollView>

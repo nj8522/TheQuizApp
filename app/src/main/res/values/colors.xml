@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="splash_color">#38833D</color>
+
+    //Correct Answer
+    <color name="correct">#43A047</color>
+
+    //Wrong Answer
+    <color name="wrong">#B71C1C</color>
+</resources>
